@@ -9,12 +9,23 @@ fn main() {
 
 // Open the text file and read it into a vector of strings — DONE
 // Print the contents — DONE
-// Create a vector of integers that hols the sums of each Elf
+// Create a vector of integers that holds the sums of each Elf — DONE
 // Find the largerst number in that vector
 fn solve_puzzle_01a() {
     let calories: Vec<String> = load_from_file("src/01a-puzzle-input.txt");
+    let mut group_sum: u32 = 0;
+    let mut elf_calories: u32;
+    let mut elf_calory_sums: Vec<u32> = Vec::new();
     for (pos, e) in calories.iter().enumerate() {
-        println!("{}: {:?}", pos, e)
+        println!("{}: {:?}", pos, e);
+        if e == "" {
+            elf_calory_sums.push(group_sum);
+            println!("Sum {group_sum}");
+            group_sum = 0;
+        } else {
+            elf_calories = e.parse::<u32>().unwrap();
+            group_sum += elf_calories;
+        }
     }
 }
 
