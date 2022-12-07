@@ -4,11 +4,12 @@ use std::io::BufReader;
 
 fn main() {
     solve_day_01();
+    solve_day_02();
 }
 
 fn solve_day_01() {
     println!("--- Day 1: Calorie Counting ---");
-    let calories: Vec<String> = load_from_file("src/01a-puzzle-input.txt");
+    let calories: Vec<String> = load_from_file("src/puzzle_inputs/day01.txt");
     let mut group_sum: u32 = 0;
     let mut elf_calories: u32;
     let mut elf_calory_sums: Vec<u32> = Vec::new();
@@ -27,6 +28,12 @@ fn solve_day_01() {
     elf_calory_sums.sort_by(|a, b| b.cmp(a));
     let total: u32 = elf_calory_sums[0] + elf_calory_sums[1] + elf_calory_sums[2];
     println!("The top three most calories carrying Elfs have a total of {total} calories");
+    println!();
+}
+
+fn solve_day_02() {
+    println!("--- Day 2: Rock Paper Scissors ---");
+    println!("--- Part Two ---");
     println!();
 }
 
