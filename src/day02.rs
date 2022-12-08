@@ -2,7 +2,7 @@ use crate::utils::load_from_file;
 
 pub fn solve_day_02() {
     println!("--- Day 2: Rock Paper Scissors ---");
-    test_solve_day_02();
+    test_example();
     let strategy_guide: Vec<String> = load_from_file("src/puzzle_inputs/day02.txt");
     assert_eq!(strategy_guide.len(), 2500);
     println!(
@@ -10,24 +10,24 @@ pub fn solve_day_02() {
         get_score(&strategy_guide)
     );
     println!("  --- Part Two ---");
-    test_solve_day_02_p2();
+    test_example_p2();
     println!(
         "  The total score for the descrypted strategy would be {}",
         get_score(&decrypt_strategy_guide(&strategy_guide))
     );
 }
 
-fn test_solve_day_02_p2() {
+fn test_example() {
+    let strategy_guide: Vec<String> = vec!["A Y".to_string(), "B X".to_string(), "C Z".to_string()];
+    assert_eq!(strategy_guide.len(), 3);
+    assert_eq!(get_score(&strategy_guide), 15);
+}
+
+fn test_example_p2() {
     let strategy_guide: Vec<String> = vec!["A Y".to_string(), "B X".to_string(), "C Z".to_string()];
     let decrypted_guide = decrypt_strategy_guide(&strategy_guide);
     assert_eq!(strategy_guide.len(), 3);
     assert_eq!(get_score(&decrypted_guide), 12);
-}
-
-fn test_solve_day_02() {
-    let strategy_guide: Vec<String> = vec!["A Y".to_string(), "B X".to_string(), "C Z".to_string()];
-    assert_eq!(strategy_guide.len(), 3);
-    assert_eq!(get_score(&strategy_guide), 15);
 }
 
 fn get_shape_score(round: &String) -> u32 {
