@@ -6,7 +6,7 @@ struct Racksuck {
 }
 
 // https://adventofcode.com/2022/day/3
-pub fn solve_day_03() {
+pub fn solve_day() {
     println!("--- Day 3: Rucksack Reorganization ---");
     let priorities_table = build_priorities_table();
     test_example(&priorities_table);

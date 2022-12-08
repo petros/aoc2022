@@ -1,6 +1,6 @@
 use crate::utils::load_from_file;
 
-pub fn solve_day_02() {
+pub fn solve_day() {
     println!("--- Day 2: Rock Paper Scissors ---");
     test_example();
     let strategy_guide: Vec<String> = load_from_file("src/puzzle_inputs/day02.txt");

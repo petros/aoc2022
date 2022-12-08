@@ -1,6 +1,6 @@
 use crate::utils::load_from_file;
 
-pub fn solve_day_01() {
+pub fn solve_day() {
     println!("--- Day 1: Calorie Counting ---");
     let calories: Vec<String> = load_from_file("src/puzzle_inputs/day01.txt");
     let mut group_sum: u32 = 0;
