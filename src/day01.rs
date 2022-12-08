@@ -21,5 +21,4 @@ pub fn solve_day_01() {
     elf_calory_sums.sort_by(|a, b| b.cmp(a));
     let total: u32 = elf_calory_sums[0] + elf_calory_sums[1] + elf_calory_sums[2];
     println!("  The top three most calories carrying Elfs have a total of {total} calories");
-    println!();
 }

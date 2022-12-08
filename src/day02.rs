@@ -10,7 +10,6 @@ pub fn solve_day_02() {
         get_score(&strategy_guide)
     );
     println!("  --- Part Two ---");
-    println!();
     test_solve_day_02_p2();
     println!(
         "  The total score for the descrypted strategy would be {}",
