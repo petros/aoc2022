@@ -1,17 +1,19 @@
+use crate::spoilers;
 use crate::utils::load_from_file;
 use std::collections::HashSet;
 
 // https://adventofcode.com/2022/day/4
 pub fn solve_day() {
-    assert_eq!(solve_puzzle(&puzzle_input_example()), 2);
-    assert_eq!(solve_puzzle_p2(&puzzle_input_example()), 4);
+    assert_eq!(solution(&puzzle_input_example()), 2);
+    assert_eq!(solution(&puzzle_input()), spoilers::d04());
+    assert_eq!(solution_p2(&puzzle_input_example()), 4);
+    assert_eq!(solution_p2(&puzzle_input()), spoilers::d04_p2());
     println!("--- Day 4: Camp Cleanup ---");
-    println!("  Part one: {}", solve_puzzle(&puzzle_input()));
-    println!("  Part two: {}", solve_puzzle_p2(&puzzle_input()));
-    println!();
+    println!("  Part one: {}", solution(&puzzle_input()));
+    println!("  Part two: {}", solution_p2(&puzzle_input()));
 }
 
-fn solve_puzzle(puzzle_input: &[String]) -> usize {
+fn solution(puzzle_input: &[String]) -> usize {
     puzzle_input
         .iter()
         .filter(|line| {
@@ -31,7 +33,7 @@ fn solve_puzzle(puzzle_input: &[String]) -> usize {
         .len()
 }
 
-fn solve_puzzle_p2(puzzle_input: &[String]) -> usize {
+fn solution_p2(puzzle_input: &[String]) -> usize {
     puzzle_input
         .iter()
         .filter(|line| {

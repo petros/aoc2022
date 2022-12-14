@@ -1,3 +1,4 @@
+use crate::spoilers;
 use crate::utils::load_from_file;
 
 pub fn solve_day() {
@@ -5,16 +6,13 @@ pub fn solve_day() {
     test_example();
     let strategy_guide: Vec<String> = load_from_file("src/puzzle_inputs/day02.txt");
     assert_eq!(strategy_guide.len(), 2500);
-    println!(
-        "  The total score for this strategy guide would be {}",
-        get_score(&strategy_guide)
-    );
-    println!("  --- Part Two ---");
+    let score = get_score(&strategy_guide);
+    assert_eq!(score, spoilers::d02());
+    println!("  Part one: {}", score);
     test_example_p2();
-    println!(
-        "  The total score for the descrypted strategy would be {}",
-        get_score(&decrypt_strategy_guide(&strategy_guide))
-    );
+    let score = get_score(&decrypt_strategy_guide(&strategy_guide));
+    assert_eq!(score, spoilers::d02_p2());
+    println!("  Part two: {}", score);
 }
 
 fn test_example() {
@@ -30,7 +28,7 @@ fn test_example_p2() {
     assert_eq!(get_score(&decrypted_guide), 12);
 }
 
-fn get_shape_score(round: &String) -> u32 {
+fn get_shape_score(round: &String) -> usize {
     match round.as_str() {
         "A X" => 1,
         "A Y" => 2,
@@ -45,7 +43,7 @@ fn get_shape_score(round: &String) -> u32 {
     }
 }
 
-fn get_outcome_score(round: &String) -> u32 {
+fn get_outcome_score(round: &String) -> usize {
     // Rock, Paper, Scissors
     match round.as_str() {
         "A X" => 3, // Rock <> Rock
@@ -61,12 +59,12 @@ fn get_outcome_score(round: &String) -> u32 {
     }
 }
 
-fn get_round_score(round: &String) -> u32 {
+fn get_round_score(round: &String) -> usize {
     return get_shape_score(&round) + get_outcome_score(&round);
 }
 
-fn get_score(strategy_guide: &Vec<String>) -> u32 {
-    let mut score: u32 = 0;
+fn get_score(strategy_guide: &Vec<String>) -> usize {
+    let mut score: usize = 0;
     for round in strategy_guide.iter() {
         score += get_round_score(round);
     }

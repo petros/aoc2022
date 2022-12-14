@@ -1,3 +1,4 @@
+use crate::spoilers;
 use crate::utils::load_from_file;
 use std::collections::BTreeMap;
 
@@ -12,17 +13,14 @@ pub fn solve_day() {
     test_example(&priorities_table);
     let racksucks = build_racksucks(&priorities_table, &get_input());
     assert_eq!(racksucks.len(), 300);
-    println!(
-        "  The sum of the priorities of all duplicate item types is {}",
-        calculate_priority_sum(&racksucks)
-    );
-    println!("  --- Part Two ---");
+    let sum = calculate_priority_sum(&racksucks);
+    assert_eq!(sum, spoilers::d03());
+    println!("  Part one: {}", sum);
     test_example_p2(&priorities_table);
     let racksucks = build_racksucks_p2(&priorities_table, &get_input());
-    println!(
-        "  The sum of the priorities of those types is {}",
-        calculate_priority_sum(&racksucks)
-    );
+    let sum = calculate_priority_sum(&racksucks);
+    assert_eq!(sum, spoilers::d03_p2());
+    println!("  Part two: {}", sum);
 }
 
 fn test_example(priorities_table: &BTreeMap<char, usize>) {
