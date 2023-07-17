@@ -24,12 +24,12 @@ pub fn solve_day() {
 }
 
 fn test_example(priorities_table: &BTreeMap<char, usize>) {
-    let racksucks = build_racksucks(&priorities_table, &get_example_input());
+    let racksucks = build_racksucks(priorities_table, &get_example_input());
     assert_eq!(calculate_priority_sum(&racksucks), 157);
 }
 
 fn test_example_p2(priorities_table: &BTreeMap<char, usize>) {
-    let racksucks = build_racksucks_p2(&priorities_table, &get_example_input());
+    let racksucks = build_racksucks_p2(priorities_table, &get_example_input());
     assert_eq!(calculate_priority_sum(&racksucks), 70);
 }
 
@@ -92,7 +92,7 @@ fn build_racksuck(
     compartment_one: &str,
     compartment_two: &str,
 ) -> Racksuck {
-    let priority = match get_duplicate_item_type(&compartment_one, &compartment_two) {
+    let priority = match get_duplicate_item_type(compartment_one, compartment_two) {
         Some(duplicate_item_type) => get_priority(priorities_table, duplicate_item_type),
         None => 0,
     };

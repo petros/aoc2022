@@ -17,11 +17,11 @@ fn solution(puzzle_input: &[String]) -> usize {
     puzzle_input
         .iter()
         .filter(|line| {
-            let splits: Vec<&str> = line.split(",").collect();
+            let splits: Vec<&str> = line.split(',').collect();
             let left = splits[0];
             let right = splits[1];
-            let left_splits: Vec<&str> = left.split("-").collect();
-            let right_splits: Vec<&str> = right.split("-").collect();
+            let left_splits: Vec<&str> = left.split('-').collect();
+            let right_splits: Vec<&str> = right.split('-').collect();
             let left_start: usize = left_splits[0].parse::<usize>().unwrap_or(0);
             let left_end: usize = left_splits[1].parse::<usize>().unwrap_or(0);
             let right_start: usize = right_splits[0].parse::<usize>().unwrap_or(0);
@@ -37,11 +37,11 @@ fn solution_p2(puzzle_input: &[String]) -> usize {
     puzzle_input
         .iter()
         .filter(|line| {
-            let splits: Vec<&str> = line.split(",").collect();
+            let splits: Vec<&str> = line.split(',').collect();
             let left = splits[0];
             let right = splits[1];
-            let left_splits: Vec<&str> = left.split("-").collect();
-            let right_splits: Vec<&str> = right.split("-").collect();
+            let left_splits: Vec<&str> = left.split('-').collect();
+            let right_splits: Vec<&str> = right.split('-').collect();
             let left_start: usize = left_splits[0].parse::<usize>().unwrap_or(0);
             let left_end: usize = left_splits[1].parse::<usize>().unwrap_or(0);
             let right_start: usize = right_splits[0].parse::<usize>().unwrap_or(0);

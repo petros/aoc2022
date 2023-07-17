@@ -8,7 +8,7 @@ pub fn solve_day() {
     let mut elf_calories: usize;
     let mut elf_calory_sums: Vec<usize> = Vec::new();
     for (_pos, e) in calories.iter().enumerate() {
-        if e == "" {
+        if e.is_empty() {
             elf_calory_sums.push(group_sum);
             group_sum = 0;
         } else {
@@ -16,7 +16,7 @@ pub fn solve_day() {
             group_sum += elf_calories;
         }
     }
-    let max_total_calories: _ = elf_calory_sums.iter().max().unwrap();
+    let max_total_calories = elf_calory_sums.iter().max().unwrap();
     assert_eq!(max_total_calories, &spoilers::d01());
     println!("  Part one: {}", max_total_calories);
     elf_calory_sums.sort_by(|a, b| b.cmp(a));
