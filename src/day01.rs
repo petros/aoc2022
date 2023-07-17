@@ -8,7 +8,7 @@ pub fn solve_day() {
     let mut elf_calories: usize;
     let mut elf_calory_sums: Vec<usize> = Vec::new();
     for (_pos, e) in calories.iter().enumerate() {
-        if e == "" {
+        if e.is_empty() {
             elf_calory_sums.push(group_sum);
             group_sum = 0;
         } else {

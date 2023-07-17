@@ -28,8 +28,8 @@ fn test_example_p2() {
     assert_eq!(get_score(&decrypted_guide), 12);
 }
 
-fn get_shape_score(round: &String) -> usize {
-    match round.as_str() {
+fn get_shape_score(round: &str) -> u32 {
+    match round {
         "A X" => 1,
         "A Y" => 2,
         "A Z" => 3,
@@ -43,9 +43,9 @@ fn get_shape_score(round: &String) -> usize {
     }
 }
 
-fn get_outcome_score(round: &String) -> usize {
+fn get_outcome_score(round: &str) -> u32 {
     // Rock, Paper, Scissors
-    match round.as_str() {
+    match round {
         "A X" => 3, // Rock <> Rock
         "A Y" => 6, // Rock <> Paper
         "A Z" => 0, // Rock <> Scissors
@@ -59,31 +59,31 @@ fn get_outcome_score(round: &String) -> usize {
     }
 }
 
-fn get_round_score(round: &String) -> usize {
-    return get_shape_score(&round) + get_outcome_score(&round);
+fn get_round_score(round: &str) -> u32 {
+    get_shape_score(round) + get_outcome_score(round)
 }
 
-fn get_score(strategy_guide: &Vec<String>) -> usize {
-    let mut score: usize = 0;
+fn get_score(strategy_guide: &[String]) -> u32 {
+    let mut score: u32 = 0;
     for round in strategy_guide.iter() {
         score += get_round_score(round);
     }
-    return score;
+    score
 }
 
-fn decrypt_strategy_guide(strategy_guide: &Vec<String>) -> Vec<String> {
+fn decrypt_strategy_guide(strategy_guide: &[String]) -> Vec<String> {
     let mut result: Vec<String> = Vec::new();
     for round in strategy_guide.iter() {
         result.push(decrypt_move(round));
     }
-    return result;
+    result
 }
 
-fn decrypt_move(round: &String) -> String {
+fn decrypt_move(round: &str) -> String {
     // X => Lose (Rock)
     // Y => Draw (Paper)
     // Z => Win  (Scissors)
-    match round.as_str() {
+    match round {
         "A X" => "A Z".to_string(), // Rock <> Rock => Scissors
         "A Y" => "A X".to_string(), // Rock <> Paper => Rock
         "A Z" => "A Y".to_string(), // Rock <> Scissors => Paper

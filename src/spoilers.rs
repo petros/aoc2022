@@ -6,11 +6,11 @@ pub fn d01_p2() -> usize {
     207148
 }
 
-pub fn d02() -> usize {
+pub fn d02() -> u32 {
     14375
 }
 
-pub fn d02_p2() -> usize {
+pub fn d02_p2() -> u32 {
     10274
 }
 
