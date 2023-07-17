@@ -16,7 +16,7 @@ pub fn solve_day() {
             group_sum += elf_calories;
         }
     }
-    let max_total_calories: _ = elf_calory_sums.iter().max().unwrap();
+    let max_total_calories = elf_calory_sums.iter().max().unwrap();
     assert_eq!(max_total_calories, &spoilers::d01());
     println!("  Part one: {}", max_total_calories);
     elf_calory_sums.sort_by(|a, b| b.cmp(a));

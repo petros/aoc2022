@@ -10,5 +10,5 @@ pub fn load_from_file(file_path: &str) -> Vec<String> {
         .lines()
         .map(|line| line.unwrap().parse::<String>().unwrap())
         .collect();
-    return numbers;
+    numbers
 }
